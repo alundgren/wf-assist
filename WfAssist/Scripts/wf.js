@@ -1,9 +1,4 @@
 ﻿$(document).ready(function () {
-//    if (screen.width <= 800) {
-//        //HACK:Should really be adaptive but I give up. Damn htc browser is just determined to pretend it
-//        //has a huge viewport (reports 800 screen.width, innerWidth, width all report lies)
-//        $("#container").width(300);
-//    }
     $("#user-agent").html(navigator.userAgent);
     $("#tabs").tabs();
     $("#lang-radio-set").buttonset();
