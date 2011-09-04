@@ -1,4 +1,13 @@
-﻿$(document).ready(function () {
+﻿function autoscale() {
+    var i1 = parseInt($(window).width());
+    var i2 = Math.max(i1, 300);
+    $("#search").html(i1 + ", " + i2);
+}
+$(document).ready(function () {
+    autoscale();
+    $(window).resize(function () {
+        autoscale();
+    });
     $("#tabs").tabs();
     $("#lang-radio-set").buttonset();
     $("#progress").hide();

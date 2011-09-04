@@ -4,7 +4,7 @@ header
     clear : both;
     margin : 5px;
     min-width : 300px;
-    max-width : 550px;
+    width : 97%;
     height : 42px;
     overflow:visible;
     background-color : #2191C0;
@@ -38,7 +38,7 @@ footer
     clear : both;
     margin : 5px;
     min-width : 300px;
-    max-width : 550px;
+    width : 97%;
     height : 3em;
     overflow:visible;
     font-size : x-small;
@@ -54,7 +54,9 @@ footer ul
    list-style-type: none;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
-    -webkit-padding-start: 0; 
+    -webkit-padding-start: 0;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 footer li {float : left; list-style : none;}
 footer a 
@@ -66,7 +68,7 @@ footer a
     border : none !important;
 }
 footer a span.ui-icon { float: left; margin: 0 4px; }
-#tabs {min-width:300px; max-width : 550px;}        
+#tabs {min-width:300px;width : 97%;}        
        
 #usage-examples { border-collapse: separate;width: 100%; }
 #usage-examples td { font-weight: normal !important; padding: .4em; border-top-width: 0px !important; }
