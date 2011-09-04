@@ -5,6 +5,11 @@
     $("#window-inner-width").html(window.innerWidth);
     $("#window-x-offset").html(window.pageXOffset);
     $("#window-y-offset").html(window.pageYOffset);
+    $("#screen-width").html(screen.width);
+    $("#screen-height").html(screen.height);
+    if(screen.width < 500) {
+        $("#container").width(screen.width - 5);
+    }
 }
 $(document).ready(function () {
     debugViewport();
