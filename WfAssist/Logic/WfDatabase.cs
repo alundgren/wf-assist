@@ -83,7 +83,7 @@ namespace WfAssist.Logic
             //Sort and limit count
             return passingWords
                 .OrderBy(x => x.Length)
-                .Take(100)
+                .Take(30)
                 .ToList();
         }
 

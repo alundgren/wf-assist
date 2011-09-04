@@ -1,0 +1,84 @@
+/*A warning to anyone looking at this. I suck at css so if something looks totally insane and stupid it probably is*/
+header 
+{
+    clear : both;
+    margin : 5px;
+    min-width : 300px;
+    max-width : 550px;
+    height : 42px;
+    overflow:visible;
+    background-color : #2191C0;
+    color : White;
+}
+h1
+{
+    font-size : 1.2em;
+}
+header h1 
+{
+    margin : 0px;
+    margin-top : 0.2em; 
+}
+h2
+{
+    font-size : 1.1em;
+}
+header #selectlang 
+{
+    float : right;
+    margin-left:10px;
+}      
+header #home 
+{
+    float : left;
+
+} 
+footer 
+{
+    clear : both;
+    margin : 5px;
+    min-width : 300px;
+    max-width : 550px;
+    height : 3em;
+    overflow:visible;
+    font-size : x-small;
+    background-color : #2191C0;
+} 
+div.field span.ui-button
+{
+    width : 211px;
+}
+footer ul
+{
+    /*Reset some insanity from jquery ui*/
+   list-style-type: none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0; 
+}
+footer li {float : left; list-style : none;}
+footer a 
+{ 
+    margin: 2px; position: relative; padding: 4px 8px 4px 0; cursor: pointer; 
+    float: left; list-style: none; 
+    background : none !important; 
+    background-color : transparent !important; 
+    border : none !important;
+}
+footer a span.ui-icon { float: left; margin: 0 4px; }
+#tabs {min-width:300px; max-width : 550px;}        
+       
+#usage-examples { border-collapse: separate;width: 100%; }
+#usage-examples td { font-weight: normal !important; padding: .4em; border-top-width: 0px !important; }
+#usage-examples th { text-align: center; padding: .8em .4em; }
+#usage-examples td.first, .styleTable TH.first { border-left-width: 0px !important; }
+
+.result-list
+{
+    list-style-type: none; margin: 0; padding: 0;overflow: auto;
+}
+
+.result-list li 
+{
+    margin: 3px 3px 3px 0; padding: 1px; float: left;overflow: auto;
+}

@@ -109,7 +109,7 @@ namespace WfAssist.Test
             
             var db = MockDb(words);
 
-            db.FindWords("*").AssertEquals(words.OrderBy(x => x.Length).Take(100).ToArray());
+            db.FindWords("*").AssertEquals(words.OrderBy(x => x.Length).Take(30).ToArray());
         }
     }
 }
