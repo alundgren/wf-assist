@@ -1,6 +1,10 @@
 ﻿function debugViewport() {
-    $("#viewport-height").html($(window).height());
-    $("#viewport-width").html($(window).width());
+    $("#window-height").html(document.documentElement.clientHeight);
+    $("#window-width").html(document.documentElement.clientWidth);
+    $("#window-inner-height").html(window.innerHeight);
+    $("#window-inner-width").html(window.innerWidth);
+    $("#window-x-offset").html(window.pageXOffset);
+    $("#window-y-offset").html(window.pageYOffset);
 }
 $(document).ready(function () {
     debugViewport();
