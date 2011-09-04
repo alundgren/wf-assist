@@ -1,21 +1,9 @@
-﻿function debugViewport() {
-    $("#window-height").html(document.documentElement.clientHeight);
-    $("#window-width").html(document.documentElement.clientWidth);
-    $("#window-inner-height").html(window.innerHeight);
-    $("#window-inner-width").html(window.innerWidth);
-    $("#window-x-offset").html(window.pageXOffset);
-    $("#window-y-offset").html(window.pageYOffset);
-    $("#screen-width").html(screen.width);
-    $("#screen-height").html(screen.height);
-    if(screen.width < 500) {
-        $("#container").width(screen.width - 5);
+﻿$(document).ready(function () {
+    if (screen.width <= 800) {
+        //HACK:Should really be adaptive but I give up. Damn htc browser is just determined to pretend it
+        //has a huge viewport (reports 800 screen.width, innerWidth, width all report lies)
+        $("#container").width(300);
     }
-}
-$(document).ready(function () {
-    debugViewport();
-    $(window).resize(function () {
-        debugViewport();
-    });
     $("#user-agent").html(navigator.userAgent);
     $("#tabs").tabs();
     $("#lang-radio-set").buttonset();
