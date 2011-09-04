@@ -1,4 +1,13 @@
-﻿$(document).ready(function () {
+﻿function debugViewport() {
+    $("#viewport-height").html($(window).height());
+    $("#viewport-width").html($(window).width());
+}
+$(document).ready(function () {
+    debugViewport();
+    $(window).resize(function () {
+        debugViewport();
+    });
+    $("#user-agent").html(navigator.userAgent);
     $("#tabs").tabs();
     $("#lang-radio-set").buttonset();
     $("#progress").hide();
