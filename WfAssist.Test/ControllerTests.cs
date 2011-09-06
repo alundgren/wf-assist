@@ -28,7 +28,7 @@ namespace WfAssist.Test
             var words = new Mock<IWordProvider>();
             words
                 .Setup(x => x.FindWords("sv", "päron"))
-                .Returns(new[] {"päron"}.ToList());
+                .Returns(new[] { Tuple.Create("päron", 1) }.ToList());
             var controller = new HomeController(words.Object);
 
             controller.Words("sv", "päron");
@@ -42,7 +42,7 @@ namespace WfAssist.Test
             var words = new Mock<IWordProvider>();
             words
                 .Setup(x => x.FindWordsFiltered("sv", "päron", "päron"))
-                .Returns(new[] { "päron" }.ToList());
+                .Returns(new[] { Tuple.Create("päron", 1) }.ToList());
             var controller = new HomeController(words.Object);
 
             controller.WordsFiltered("sv", "päron", "päron");

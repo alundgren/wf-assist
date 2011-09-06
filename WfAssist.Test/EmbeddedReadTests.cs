@@ -17,5 +17,15 @@ namespace WfAssist.Test
             Assert.AreEqual(416601, db.Words.Count);
             db.FindWords("päron").AssertEquals("päron");
         }
+
+        [TestMethod]
+        public void ReadSwedishPoints()
+        {
+            var points = EmbeddedDictionaries.LoadSwedishPoints();
+
+            Assert.AreEqual(4, points['ö']);
+            Assert.AreEqual(7, points['y']);
+            Assert.AreEqual(29, points.Keys.Count);
+        }
     }
 }

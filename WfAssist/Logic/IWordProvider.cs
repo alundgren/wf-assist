@@ -7,7 +7,7 @@ namespace WfAssist.Logic
 {
     public interface IWordProvider
     {
-        IList<string> FindWords(string language, string pattern);
-        IList<string> FindWordsFiltered(string language, string pattern, string availableLetters);
+        IList<Tuple<string, int>> FindWords(string language, string pattern);
+        IList<Tuple<string, int>> FindWordsFiltered(string language, string pattern, string availableLetters);
     }
 }

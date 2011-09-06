@@ -45,7 +45,7 @@ namespace WfAssist.Logic
         /// </summary>
         /// <param name="pattern">See summary for pattern syntax</param>
         /// <param name="availableLetters">available letters (the number of times each letter occurs will be respecred)</param>
-        /// <returns>A list of at most 100 words matching the query, ordered from shortest to longest</returns>
+        /// <returns>A list of words matching the query, ordered from shortest to longest</returns>
         public IList<string> FindWords(string pattern, string availableLetters = null)
         {
             var letters = (availableLetters ?? "")
@@ -80,11 +80,7 @@ namespace WfAssist.Logic
                     .Where(x => RespectsLetterCounts(x, letterCounts)); 
             }
 
-            //Sort and limit count
-            return passingWords
-                .OrderBy(x => x.Length)
-                .Take(30)
-                .ToList();
+            return passingWords.ToList();
         }
 
         private bool RespectsLetterCounts(string word, IDictionary<char, int> letterCounts)

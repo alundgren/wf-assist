@@ -98,18 +98,5 @@ namespace WfAssist.Test
             db.FindWords("cha*er*id", "abmm").AssertEquals("chambermaid");
         }
 
-        [TestMethod]
-        public void MaxHitCountAndOrderRespected()
-        {
-            var words = Enumerable
-                .Range(0, 1000)
-                .Select(i => new string('a', i))
-                .OrderBy(x => Guid.NewGuid()) //Will sort of randomize the array (unlikely to pass a true randomness test but close enough for this purpose)
-                .ToArray();
-            
-            var db = MockDb(words);
-
-            db.FindWords("*").AssertEquals(words.OrderBy(x => x.Length).Take(30).ToArray());
-        }
     }
 }

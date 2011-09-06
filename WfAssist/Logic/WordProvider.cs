@@ -11,6 +11,9 @@ namespace WfAssist.Logic
         private readonly Lazy<WfDatabase> _swedishDb = new Lazy<WfDatabase>(
             EmbeddedDictionaries.LoadSwedishDatabase,
             LazyThreadSafetyMode.ExecutionAndPublication);
+        private readonly Lazy<IDictionary<char, int>> _swedishScores = new Lazy<IDictionary<char, int>>(
+            EmbeddedDictionaries.LoadSwedishPoints,
+            LazyThreadSafetyMode.ExecutionAndPublication); 
 
         private WfDatabase Db(string language)
         {
@@ -19,20 +22,39 @@ namespace WfAssist.Logic
                 : null;
         }
 
-        public IList<string> FindWords(string language, string pattern)
+        public IList<Tuple<string, int>> FindWords(string language, string pattern)
         {
             var db = Db(language);
-            return db == null
-                ? new List<string>()
-                : db.FindWords(pattern);
+            return
+                SortLimitAndScoreResult(
+                db == null
+                    ? new List<string>()
+                    : db.FindWords(pattern));
         }
 
-        public IList<string> FindWordsFiltered(string language, string pattern, string availableLetters)
+        public IList<Tuple<string, int>> FindWordsFiltered(string language, string pattern, string availableLetters)
         {
             var db = Db(language);
-            return db == null 
-                ? new List<string>() 
-                : db.FindWords(pattern, availableLetters);
+            return SortLimitAndScoreResult(
+                db == null 
+                    ? new List<string>() 
+                    : db.FindWords(pattern, availableLetters));
+        }
+
+        private IList<Tuple<string, int>> SortLimitAndScoreResult(IList<string> input)
+        {
+            return input
+                .Select(x => Tuple.Create(x, GetWordScore(x)))
+                .OrderByDescending(x => x.Item2)
+                .Take(30)
+                .ToList();
+        }
+
+        private int GetWordScore(string word)
+        {
+            return word
+                .Select(c => _swedishScores.Value.ContainsKey(c) ? _swedishScores.Value[c] : 0)
+                .Sum();
         }
     }
 }

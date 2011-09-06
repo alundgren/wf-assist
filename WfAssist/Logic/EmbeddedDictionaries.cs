@@ -19,6 +19,22 @@ namespace WfAssist.Logic
             }
         }
 
+        public static IDictionary<char, int> LoadSwedishPoints()
+        {
+            return WithResourceStream("Dictionaries.sv-points.txt", 
+                s =>
+                {
+                    using (var r = new StreamReader(s, Encoding.UTF8))
+                    {
+                        return r.ReadToEnd()
+                            .Split(';')
+                            .Select(x => x.Split(','))
+                            .Select(x => Tuple.Create(x[0][0], int.Parse(x[1])))
+                            .ToDictionary(x => x.Item1, x => x.Item2);
+                    }
+                });
+        }
+
         public static WfDatabase LoadSwedishDatabase()
         {
             var culture = CultureInfo.GetCultureInfo("sv-SE");

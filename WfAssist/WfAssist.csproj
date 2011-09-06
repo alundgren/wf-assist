@@ -84,6 +84,7 @@
   <ItemGroup>
     <Content Include="Content\ajax-loader.gif" />
     <Content Include="Content\fail.css" />
+    <EmbeddedResource Include="Dictionaries\sv-points.txt" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\wf.js" />
     <Content Include="Web.config" />
